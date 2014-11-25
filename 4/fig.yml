@@ -1,0 +1,25 @@
+nginx:
+  image: bbl_pch/nginx
+  ports:
+    - "80:80"
+  links:
+    - "app:app"
+
+app:
+  image: bbl_pch/app:1.0.0
+  expose:
+    - 8080
+  links:
+    - "mysql:db"
+  environment:
+    ASMPP_CONF: /etc/application.conf
+  volumes:
+    - "./application.conf:/etc/application.conf"
+
+mysql:
+  image: bbl_pch/mysqld
+  volumes:
+    - /home/bbl_pch/data:/var/lib/db/mysql
+  expose:
+    - 3306
+

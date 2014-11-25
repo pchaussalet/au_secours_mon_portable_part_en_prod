@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app="myGreatApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>My Great App !</title>
+    <link rel='stylesheet' href='/css/bootstrap.min.css'>
+</head>
+<body ng-controller="mainCtrl">
+    <header>
+        <h1>Yet another address book webapp</h1>
+    </header>
+    <section id="newContact" class="container">
+        <h2>New contact</h2>
+        <form role="form">
+            <div class="form-group">
+                <label for="firstname">Firstname: </label>
+                <input type="text" class="form-control" id="firstname" ng-model="firstname" placeholder="Firstname">
+            </div>
+            <div class="form-group">
+                <label for="lastname">Lastname: </label>
+                <input type="text" class="form-control" id="lastname" ng-model="lastname" placeholder="Lastname">
+            </div>
+            <div class="form-group">
+                <label for="email">Email: </label>
+                <input type="text" class="form-control" id="email" ng-model="email" placeholder="Email address">
+            </div>
+            <button type="submit" class="btn btn-primary" ng-click="add()">Add contact</button>
+            <button type="reset" class="btn">Reset form</button>
+        </form>
+    </section>
+    <section id="contactsList" class="container">
+        <h2>Contacts list :</h2>
+        <dl>
+            <div ng-repeat="contact in contacts">
+                <dt><span ng-bind="contact.firstname"></span> <span ng-bind="contact.lastname"></span> <a href="#" ng-click="del(contact.id)">X</a></dt>
+                <dd><span ng-bind="contact.email"></span></dd>
+            </div>
+        </dl>
+    </section>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/angular.min.js"></script>
+    <script src="/js/main.js"></script>
+</body>
+</html>
