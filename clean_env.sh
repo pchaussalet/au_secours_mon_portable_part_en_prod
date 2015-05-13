@@ -1,8 +1,8 @@
 #!/bin/sh
-echo "ensuring fig environment is clean..."
+echo "ensuring docker-compose environment is clean..."
 cd 4
-fig kill
-fig rm --force
+docker-compose kill
+docker-compose rm --force
 cd ..
 
 STOPPED=`docker ps -a |grep Exit`

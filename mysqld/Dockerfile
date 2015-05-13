@@ -1,4 +1,4 @@
-FROM ubuntu:13.10
+FROM ubuntu:14.04
 
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y mysql-server-5.5
 RUN sed -i 's/^bind-address/#bind-address/' /etc/mysql/my.cnf
